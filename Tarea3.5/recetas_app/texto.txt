@@ -1,0 +1,57 @@
+import 'package:flutter/material.dart';
+import 'package:recetas_app/receta.dart';
+
+class RecetaInfo{
+  final String title;
+  final String image;
+  final String time;
+  final String difficulty;
+  final String price;
+
+  RecetaInfo(this.title, this.image, this.time, this.difficulty, this.price);
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key, required this.recetas});
+
+  final List<RecetaInfo> recetas;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Material App',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Material App Bar'),
+        ),
+        body: ListView.builder(
+          itemCount: recetas.length,
+          itemBuilder: (context, index) {
+            return InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Receta(receta: recetas[index]),
+                  ),
+                );
+              },
+              child: Stack(
+                children: [
+                  Positioned(
+                    bottom: 20,
+                    left: 20,
+                    child: Text(
+                      recetas[index].title,
+                      style: const TextStyle(fontSize: 30, color: Colors.white),
+                    ),
+                  )
+                ],
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
