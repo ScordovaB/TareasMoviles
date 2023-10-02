@@ -14,7 +14,6 @@ class _MultiplicaState extends State<Multiplica> {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        
         children: [
           Text(
             context.watch<CounterProvider>().counter.toString(),
@@ -28,6 +27,18 @@ class _MultiplicaState extends State<Multiplica> {
                 ElevatedButton(
                     onPressed: () {
                       context.read<CounterProvider>().multiDos();
+                      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                      final snackBar1 = SnackBar(
+                        content: const Text('Se multiplico por 2!'),
+                        duration: const Duration(seconds: 2),
+                        behavior: SnackBarBehavior.floating,
+                        action: SnackBarAction(
+                          label: 'Cerrar',
+                          textColor: Colors.white,
+                          onPressed: () {},
+                        ),
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar1);
                     },
                     child: const Text("x2")),
                 const SizedBox(
@@ -36,6 +47,18 @@ class _MultiplicaState extends State<Multiplica> {
                 ElevatedButton(
                     onPressed: () {
                       context.read<CounterProvider>().multiTres();
+                      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                      final snackBar1 = SnackBar(
+                        content: const Text('Se multiplico por 3!'),
+                        duration: const Duration(seconds: 2),
+                        behavior: SnackBarBehavior.floating,
+                        action: SnackBarAction(
+                          label: 'Cerrar',
+                          textColor: Colors.white,
+                          onPressed: () {},
+                        ),
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar1);
                     },
                     child: const Text("x3")),
                 const SizedBox(
@@ -44,6 +67,18 @@ class _MultiplicaState extends State<Multiplica> {
                 ElevatedButton(
                     onPressed: () {
                       context.read<CounterProvider>().multiCinco();
+                      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                      final snackBar1 = SnackBar(
+                        content: const Text('Se multiplico por 5!'),
+                        duration: const Duration(seconds: 2),
+                        behavior: SnackBarBehavior.floating,
+                        action: SnackBarAction(
+                          label: 'Cerrar',
+                          textColor: Colors.white,
+                          onPressed: () {},
+                        ),
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar1);
                     },
                     child: const Text("x5"))
               ],
